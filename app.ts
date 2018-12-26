@@ -2,12 +2,19 @@ type ValidSymbol = "#" | "$" // using type alias
 
 interface GenerateConfig {
   symbol: ValidSymbol;
-  hashLength: number;
+  length: number;
 }
 
-function generateRandomId(options: GenerateConfig): string {
-  return options.symbol + Math.random().toString(36).substr(2, options.hashLength);
+function generateRandomId(symbol: ValidSymbol, length: number): string
+function generateRandomId(options: GenerateConfig): string
+function generateRandomId(optionsOrSymbol: GenerateConfig | ValidSymbol): string {
+  if (typeof optionsOrSymbol === 'string') {
+    return optionsOrSymbol + Math.random().toString(36).substr(2, length);
+  }
+  return optionsOrSymbol.symbol + Math.random().toString(36).substr(2, optionsOrSymbol.length);
 }
+
+generateRandomId("$", 7);
 
 // function userAlert(): void {
 function userAlert() {
@@ -26,7 +33,7 @@ function main() {
     if (app) {
       app.innerHTML = generateRandomId({
         symbol: "#",
-        hashLength: 7
+        length: 7
       });
     }
   }, 1000);

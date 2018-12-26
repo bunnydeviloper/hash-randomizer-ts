@@ -1,7 +1,11 @@
 "use strict";
-function generateRandomId(options) {
-    return options.symbol + Math.random().toString(36).substr(2, options.hashLength);
+function generateRandomId(optionsOrSymbol) {
+    if (typeof optionsOrSymbol === 'string') {
+        return optionsOrSymbol + Math.random().toString(36).substr(2, length);
+    }
+    return optionsOrSymbol.symbol + Math.random().toString(36).substr(2, optionsOrSymbol.length);
 }
+generateRandomId("$", 7);
 // function userAlert(): void {
 function userAlert() {
     alert('Hello!');
@@ -17,7 +21,7 @@ function main() {
         if (app) {
             app.innerHTML = generateRandomId({
                 symbol: "#",
-                hashLength: 7
+                length: 7
             });
         }
     }, 1000);

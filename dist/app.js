@@ -17,6 +17,8 @@ function checkError() {
 function main() {
     var app = document.getElementById("app");
     setInterval(function () {
-        app.innerHTML = generateRandomId("#", 7);
+        if (app) {
+            app.innerHTML = generateRandomId("#", 7);
+        }
     }, 1000);
 }

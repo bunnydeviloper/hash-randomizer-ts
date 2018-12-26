@@ -3,8 +3,8 @@ function generateRandomId() {
 }
 
 function main() {
-  const appComponent = document.getElementById('app');
+  const app = document.getElementById('app');
   setInterval(function() {
-    appComponent.innerHTML = generateRandomId();
+    app.innerHTML = generateRandomId();
   }, 1000);
 }

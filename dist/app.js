@@ -1,9 +1,6 @@
 "use strict";
-// const symbol: "#" | "$" = "#"; // using union type
-// const symbol: ValidSymbol = "#";
-// const hashLength: number = 7;
-function generateRandomId(symbol, hashLength) {
-    return symbol + Math.random().toString(36).substr(2, hashLength);
+function generateRandomId(options) {
+    return options.symbol + Math.random().toString(36).substr(2, options.hashLength);
 }
 // function userAlert(): void {
 function userAlert() {
@@ -18,7 +15,10 @@ function main() {
     var app = document.getElementById("app");
     setInterval(function () {
         if (app) {
-            app.innerHTML = generateRandomId("#", 7);
+            app.innerHTML = generateRandomId({
+                symbol: "#",
+                hashLength: 7
+            });
         }
     }, 1000);
 }

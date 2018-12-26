@@ -1,10 +1,12 @@
 type ValidSymbol = "#" | "$" // using type alias
-// const symbol: "#" | "$" = "#"; // using union type
-// const symbol: ValidSymbol = "#";
-// const hashLength: number = 7;
 
-function generateRandomId(symbol: ValidSymbol, hashLength?: number): string {
-  return symbol + Math.random().toString(36).substr(2, hashLength);
+interface GenerateConfig {
+  symbol: ValidSymbol;
+  hashLength: number;
+}
+
+function generateRandomId(options: GenerateConfig): string {
+  return options.symbol + Math.random().toString(36).substr(2, options.hashLength);
 }
 
 // function userAlert(): void {
@@ -22,7 +24,10 @@ function main() {
   const app = document.getElementById("app");
   setInterval(function() {
     if (app) {
-      app.innerHTML = generateRandomId("#", 7);
+      app.innerHTML = generateRandomId({
+        symbol: "#",
+        hashLength: 7
+      });
     }
   }, 1000);
 }

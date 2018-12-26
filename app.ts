@@ -1,22 +1,4 @@
-type ValidSymbol = "#" | "$" // using type alias
-
-interface GenerateConfig {
-  symbol: ValidSymbol;
-  length: number;
-}
-
-function generateRandomId(symbol: ValidSymbol, length: number): string
-function generateRandomId(options: GenerateConfig): string
-function generateRandomId(optionsOrSymbol: GenerateConfig | ValidSymbol): string {
-  if (typeof optionsOrSymbol === 'string') {
-    return optionsOrSymbol + Math.random().toString(36).substr(2, length);
-  }
-  return optionsOrSymbol.symbol + Math.random().toString(36).substr(2, optionsOrSymbol.length);
-}
-
-// generateRandomId("$", 7);
-// generateRandomId({ symbol: "$", length: 5 })
-
+import { generateRandomId } from './utils';
 function identity<T> (arg: T): T { // using generic
   return arg;
 }

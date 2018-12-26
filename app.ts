@@ -14,7 +14,8 @@ function generateRandomId(optionsOrSymbol: GenerateConfig | ValidSymbol): string
   return optionsOrSymbol.symbol + Math.random().toString(36).substr(2, optionsOrSymbol.length);
 }
 
-generateRandomId("$", 7);
+// generateRandomId("$", 7);
+// generateRandomId({ symbol: "$", length: 5 })
 
 // function userAlert(): void {
 function userAlert() {

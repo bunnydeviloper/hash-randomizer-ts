@@ -5,7 +5,14 @@ function generateRandomId(optionsOrSymbol) {
     }
     return optionsOrSymbol.symbol + Math.random().toString(36).substr(2, optionsOrSymbol.length);
 }
-generateRandomId("$", 7);
+// generateRandomId("$", 7);
+// generateRandomId({ symbol: "$", length: 5 })
+function identity(arg) {
+    return arg;
+}
+// identity<number>(1);
+// identity(1).toString(); // able to use number's available methods
+// identity('string');
 // function userAlert(): void {
 function userAlert() {
     alert('Hello!');

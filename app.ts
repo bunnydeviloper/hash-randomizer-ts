@@ -17,6 +17,14 @@ function generateRandomId(optionsOrSymbol: GenerateConfig | ValidSymbol): string
 // generateRandomId("$", 7);
 // generateRandomId({ symbol: "$", length: 5 })
 
+function identity<T> (arg: T): T { // using generic
+  return arg;
+}
+
+// identity<number>(1);
+// identity(1).toString(); // able to use number's available methods
+// identity('string');
+
 // function userAlert(): void {
 function userAlert() {
   alert('Hello!');

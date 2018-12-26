@@ -1,12 +1,13 @@
 "use strict";
-var symbol = "#";
-var hashLength = 7;
-function generateRandomId() {
+// const symbol: "#" | "$" = "#"; // using union type
+// const symbol: ValidSymbol = "#";
+// const hashLength: number = 7;
+function generateRandomId(symbol, hashLength) {
     return symbol + Math.random().toString(36).substr(2, hashLength);
 }
 function main() {
     var app = document.getElementById("app");
     setInterval(function () {
-        app.innerHTML = generateRandomId();
+        app.innerHTML = generateRandomId("#", 7);
     }, 1000);
 }

@@ -7,6 +7,17 @@ function generateRandomId(symbol: ValidSymbol, hashLength: number): string {
   return symbol + Math.random().toString(36).substr(2, hashLength);
 }
 
+// function userAlert(): void {
+function userAlert() {
+  alert('Hello!');
+}
+
+function checkError(): never {
+  throw new Error('errorrrr');
+  // never means the fn is expected to never return anything
+  // another use case is infinite while loop
+}
+
 function main() {
   const app = document.getElementById("app");
   setInterval(function() {

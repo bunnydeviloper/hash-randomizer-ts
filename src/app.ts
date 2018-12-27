@@ -1,4 +1,4 @@
-import { generateRandomId } from './utils';
+import { generateRandomId, Component } from './utils';
 function identity<T> (arg: T): T { // using generic
   return arg;
 }
@@ -16,18 +16,6 @@ function checkError(): never {
   throw new Error('errorrrr');
   // never means the fn is expected to never return anything
   // another use case is infinite while loop
-}
-
-/*
-function Component (target: any) {
-  console.log(target);
-}
-@Component
-*/
-function Component (options: { id: string }) {
-  return (target: any) => {
-    target.id = options.id;
-  }
 }
 
 @Component({

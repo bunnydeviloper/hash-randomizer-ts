@@ -17,3 +17,8 @@ export function generateRandomId(optionsOrSymbol: GenerateConfig | ValidSymbol):
 // generateRandomId("$", 7);
 // generateRandomId({ symbol: "$", length: 5 })
 
+export function Component (options: { id: string }) {
+  return (target: any) => {
+    target.id = options.id;
+  }
+}

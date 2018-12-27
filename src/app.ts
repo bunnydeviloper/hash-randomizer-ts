@@ -26,8 +26,16 @@ class App {
   }
 }
  */
+class Component {
+  constructor() {
+    this.log();
+  }
+  log() {
+    console.log('Component created');
+  }
+}
 
-class App {
+class App extends Component {
   static id = 'app'
   onInit(el: HTMLElement | null): void {
     setInterval(function() {

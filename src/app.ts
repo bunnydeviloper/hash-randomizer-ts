@@ -18,14 +18,6 @@ function checkError(): never {
   // another use case is infinite while loop
 }
 
-/*
-class App {
-  id: string
-  constructor() {
-    this.id = 'app'
-  }
-}
- */
 class Component {
   constructor() {
     this.log();
@@ -34,16 +26,6 @@ class Component {
     console.log('Component created');
   }
 }
-
-/*
-interface Component {
-  onInit(el: HTMLElement | null): void
-}
-class Component {
-  onInit(el: HTMLElement | null): void {}
-}
-class App implements Component {...}
- */
 
 class App extends Component {
   static id = 'app'

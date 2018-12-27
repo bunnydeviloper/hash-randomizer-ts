@@ -5,10 +5,14 @@
   "repository": "https://github.com/bunnydeviloper/hash-randomizer-ts.git",
   "author": "Sophia Mai <phuongmai001@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev-server": "webpack-dev-server"
+  },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
     "typescript": "^3.2.2",
     "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
   }
 }

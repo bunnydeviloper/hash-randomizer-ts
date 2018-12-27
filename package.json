@@ -1,0 +1,8 @@
+{
+  "name": "hash-randomizer-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bunnydeviloper/hash-randomizer-ts.git",
+  "author": "Sophia Mai <phuongmai001@gmail.com>",
+  "license": "MIT"
+}

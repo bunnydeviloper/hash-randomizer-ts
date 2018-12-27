@@ -18,17 +18,22 @@ function checkError(): never {
   // another use case is infinite while loop
 }
 
-class Component {
-  constructor() {
-    this.log();
-  }
-  log() {
-    console.log('Component created');
+/*
+function Component (target: any) {
+  console.log(target);
+}
+@Component
+*/
+function Component (options: { id: string }) {
+  return (target: any) => {
+    target.id = options.id;
   }
 }
 
-class App extends Component {
-  static id = 'app'
+@Component({
+  id: 'app'
+})
+class App {
   onInit(el: HTMLElement | null): void {
     setInterval(function() {
       if (el) {
@@ -41,7 +46,7 @@ class App extends Component {
   }
 }
 
-function main(ComponentClass: typeof App) {
+function main(ComponentClass: any) {
   const el = document.getElementById(ComponentClass.id); // use static properties
 
   const cmp = new ComponentClass(); // use instance properties on method

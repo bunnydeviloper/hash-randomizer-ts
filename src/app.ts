@@ -25,23 +25,27 @@ class App {
     this.id = 'app'
   }
 }
-*/
+ */
 
 class App {
   static id = 'app'
+  onInit(el: HTMLElement | null): void {
+    setInterval(function() {
+      if (el) {
+        el.innerHTML = generateRandomId({
+          symbol: "#",
+          length: 7
+        });
+      }
+    }, 1000);
+  }
 }
 
 function main(ComponentClass: typeof App) {
-  // const cmp = new ComponentClass();
-  const app = document.getElementById(ComponentClass.id);
-  setInterval(function() {
-    if (app) {
-      app.innerHTML = generateRandomId({
-        symbol: "#",
-        length: 7
-      });
-    }
-  }, 1000);
+  const el = document.getElementById(ComponentClass.id); // use static properties
+
+  const cmp = new ComponentClass(); // use instance properties on method
+  cmp.onInit(el);
 }
 
 main(App);

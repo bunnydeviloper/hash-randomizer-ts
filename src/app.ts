@@ -18,16 +18,22 @@ function checkError(): never {
   // another use case is infinite while loop
 }
 
+/*
 class App {
   id: string
   constructor() {
     this.id = 'app'
   }
 }
+*/
+
+class App {
+  static id = 'app'
+}
 
 function main(ComponentClass: typeof App) {
-  const cmp = new ComponentClass();
-  const app = document.getElementById(cmp.id);
+  // const cmp = new ComponentClass();
+  const app = document.getElementById(ComponentClass.id);
   setInterval(function() {
     if (app) {
       app.innerHTML = generateRandomId({

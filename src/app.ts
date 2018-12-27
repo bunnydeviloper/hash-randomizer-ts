@@ -18,10 +18,21 @@ function checkError(): never {
   // another use case is infinite while loop
 }
 
+function enumerable(isEnumerable: boolean) {
+  return (
+    target: any,
+    propertyKey: any,
+    propertyDescriptor: PropertyDescriptor
+  ) => {
+    propertyDescriptor.enumerable = isEnumerable
+  }
+}
+
 @Component({
   id: 'app'
 })
 class App {
+  @enumerable(false)
   onInit(el: HTMLElement | null): void {
     setInterval(function() {
       if (el) {
@@ -32,6 +43,10 @@ class App {
       }
     }, 1000);
   }
+}
+
+for (let key in App.prototype) {
+  console.log(key);
 }
 
 function main(ComponentClass: any) {

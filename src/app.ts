@@ -56,6 +56,16 @@ class App {
   }
 }
 
+enum Direction {
+  up = 'UP',
+  down = 'DOWN'
+}
+function go (up: Direction, down: Direction) {
+  console.log(up);
+  return up;
+}
+go(Direction.up, Direction.down);
+
 for (let key in App.prototype) {
   console.log(key);
 }

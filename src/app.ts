@@ -28,12 +28,21 @@ function enumerable(isEnumerable: boolean) {
   }
 }
 
+function prop(x: any, name: string) {
+  console.log(x, name);
+}
+function param(x: any, name: any, index: number) {
+  console.log(x, name, index);
+}
+
 @Component({
   id: 'app'
 })
 class App {
+  @prop
+  static version = '10123';
   @enumerable(false)
-  onInit(el: HTMLElement | null): void {
+  onInit(@param el: HTMLElement | null): void {
     setInterval(function() {
       if (el) {
         el.innerHTML = generateRandomId({

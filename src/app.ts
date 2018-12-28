@@ -1,4 +1,6 @@
 import { generateRandomId, Component } from './utils';
+import { random } from 'lodash';
+
 function identity<T> (arg: T): T { // using generic
   return arg;
 }
@@ -47,7 +49,7 @@ class App {
       if (el) {
         el.innerHTML = generateRandomId({
           symbol: "#",
-          length: 7
+          length: random(7, 15)
         });
       }
     }, 1000);

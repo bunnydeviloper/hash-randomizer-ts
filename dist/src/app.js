@@ -74,6 +74,7 @@ function go(up, down) {
     console.log(up);
     return up;
 }
+go(Direction.up, Direction.down);
 for (var key in App.prototype) {
     console.log(key);
 }
